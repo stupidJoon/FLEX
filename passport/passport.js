@@ -17,6 +17,7 @@ module.exports = () => {
     session: true, // 세션에 저장 여부
     passReqToCallback: false,
   }, (id, pw, done) => {
+    console.log(id, pw);
     Users.findId(id, (findError, result) => {
       if (findError) return done(findError); // 서버 에러 처리
       if (!result) return done(null, false, { message: '존재하지 않는 아이디입니다' }); // 임의 에러 처리
