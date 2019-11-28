@@ -65,13 +65,13 @@ module.exports.idCheck = (id, cb) => {
   });
 }
 
-module.exports.getEstates = () => {
+module.exports.getAssets = () => {
   return new Promise((resolve, reject) => {
-    pool.query('SELECT * FROM estates', (error, results, fields) => {
+    pool.query('SELECT * FROM assets', (error, results, fields) => {
       resolve(results);
     });
   });
 }
-module.exports.addEstate = (id, type, title, money) => {
-  pool.query('INSERT INTO estate VALUES (?, ?, ?, ?)', [id, type, title, money]);
+module.exports.addAsset = (id, type, title, money) => {
+  pool.query('INSERT INTO assets VALUES (?, ?, ?, ?)', [id, type, title, money]);
 }
