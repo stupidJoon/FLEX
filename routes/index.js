@@ -34,11 +34,11 @@ router.get('/status', (req, res) => {
   }
 });
 
-router.get('/asstes', (req, res) => {
+router.get('/assets', (req, res) => {
 
 });
 
-router.post('/asstes', (req, res) => {
+router.post('/assets', (req, res) => {
   if (req.isAuthenticated()) {
     Users.addEstate(req.user['id'], req.body['type'], req.body['title'], req.body['money']);
     res.json({'status': true});
