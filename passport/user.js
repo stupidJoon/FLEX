@@ -65,9 +65,9 @@ module.exports.idCheck = (id, cb) => {
   });
 }
 
-module.exports.getAssets = () => {
+module.exports.getAssets = (id) => {
   return new Promise((resolve, reject) => {
-    pool.query('SELECT * FROM assets', (error, results, fields) => {
+    pool.query('SELECT * FROM assets where id=?', [id], (error, results, fields) => {
       resolve(results);
     });
   });

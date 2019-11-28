@@ -35,7 +35,14 @@ router.get('/status', (req, res) => {
 });
 
 router.get('/assets', (req, res) => {
-
+  if (req.isAuthenticated()) {
+    Users.getAssets(req.user['id']).then((results) => {
+      res.json({'status': true, 'assets': results});
+    });
+  }
+  else {
+    res.json({'status': false, 'message': 'Authenticated failed'});
+  }
 });
 
 router.post('/assets', (req, res) => {
