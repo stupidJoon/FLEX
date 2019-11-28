@@ -34,4 +34,18 @@ router.get('/status', (req, res) => {
   }
 });
 
+router.get('/asstes', (req, res) => {
+
+});
+
+router.post('/asstes', (req, res) => {
+  if (req.isAuthenticated()) {
+    Users.addEstate(req.user['id'], req.body['type'], req.body['title'], req.body['money']);
+    res.json({'status': true});
+  }
+  else {
+    res.json({'status': false, 'message': 'Authenticated failed'});
+  }
+});
+
 module.exports = router;

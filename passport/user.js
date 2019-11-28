@@ -64,3 +64,14 @@ module.exports.idCheck = (id, cb) => {
     }
   });
 }
+
+module.exports.getEstates = () => {
+  return new Promise((resolve, reject) => {
+    pool.query('SELECT * FROM estates', (error, results, fields) => {
+      resolve(results);
+    });
+  });
+}
+module.exports.addEstate = (id, type, title, money) => {
+  pool.query('INSERT INTO estate VALUES (?, ?, ?, ?)', [id, type, title, money]);
+}
