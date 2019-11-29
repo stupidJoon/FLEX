@@ -67,7 +67,7 @@ module.exports.idCheck = (id, cb) => {
 
 module.exports.getAssets = (id) => {
   return new Promise((resolve, reject) => {
-    pool.query('SELECT * FROM assets where id=?', [id], (error, results, fields) => {
+    pool.query('SELECT * FROM assets where id=? ORDER BY created_date DESC', [id], (error, results, fields) => {
       resolve(results);
     });
   });
