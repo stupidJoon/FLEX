@@ -78,3 +78,6 @@ module.exports.addAsset = (id, type, title, money) => {
   console.log(datetime);
   pool.query('INSERT INTO assets VALUES (?, ?, ?, ?, ?)', [id, type, title, money, datetime]);
 }
+module.exports.deleteAsset = (id, title) => {
+  pool.query('DELETE FROM assets WHERE id=? AND title=?', [id, title]);
+}

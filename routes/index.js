@@ -55,4 +55,9 @@ router.post('/assets', (req, res) => {
   }
 });
 
+router.post('/assets/delete', (req, res) => {
+  Users.deleteAsset(req.user['id'], req.body['title']);
+  res.json({'status': true});
+});
+
 module.exports = router;
