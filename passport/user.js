@@ -75,7 +75,7 @@ module.exports.getAssets = (id) => {
 module.exports.addAsset = (id, type, title, money) => {
   let date = new Date();
   let datetime = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + " " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
-  console.log(datetime);
+  console.log("id:", id, "type:", type, "title:", title, "money:", money);
   pool.query('INSERT INTO assets VALUES (?, ?, ?, ?, ?)', [id, type, title, money, datetime]);
 }
 module.exports.deleteAsset = (id, title) => {
